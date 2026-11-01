@@ -1,4 +1,5 @@
 // TC : O(n2) and SC : O(n2)
+//Backtracking is a method for solving problems by building a solution one step at a time and abandoning any path as soon as it’s clear that path can’t lead to a valid answer. When you hit a dead end, you undo your last choice (that’s the “back” part) and try the next option.
 
 #include <iostream>
 #include <vector>
