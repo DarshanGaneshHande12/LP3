@@ -82,56 +82,10 @@ int main()
        - dp[i][w] represents the maximum value obtainable
          using the first i items with capacity w.
 
-    3. WHY DO WE CREATE A COLUMN FOR EVERY CAPACITY?
+In the 0/1 Knapsack problem, we create a DP table for every possible weight capacity from 0 up to the given maximum capacity. 
+This is because, when considering whether to include an item, we calculate the remaining capacity by subtracting the item's weight from the current capacity.
+We then use the previously calculated optimal value for that remaining capacity to determine the maximum total value without exceeding the knapsack's weight limit.
 
-       Suppose the maximum capacity is 7.
-       We create columns for capacities 0, 1, 2, 3, 4, 5, 6, 7.
-
-       This is because when we consider including an item,
-       we need to calculate the remaining capacity.
-
-       Remaining capacity = Current capacity - Item weight
-
-       We then look up the best value for that remaining
-       capacity using the previous items.
-
-       Example:
-       Item B has weight 3 and value 4.
-       Current capacity = 4.
-
-       Remaining capacity = 4 - 3 = 1.
-
-       Therefore:
-       Include B = value of B + dp[1][1]
-                 = 4 + 1
-                 = 5
-
-       Here, dp[1][1] represents the best value obtained
-       using the previous items (item A) with capacity 1.
-
-       This allows us to select both A and B.
-
-       We calculate smaller capacities first and reuse
-       their results to calculate larger capacities.
-       This is the main idea of Dynamic Programming.
-
-    4. DP CONDITIONS:
-
-       If item weight > current capacity:
-           dp[i][w] = dp[i-1][w]
-
-       Otherwise, we have two choices:
-
-       Exclude the item:
-           dp[i-1][w]
-
-       Include the item:
-           value[i-1] + dp[i-1][w-weight[i-1]]
-
-       Select the maximum of both choices.
-
-       We use the previous row (i-1) when including an item
-       to ensure that the same item is not selected again.
 
     5. SAMPLE INPUT:
 
