@@ -8,7 +8,7 @@ int n;
 
 bool isSafe(vector<vector<int>>& board, int row, int col)
 {
-    // Check column
+    // Check top in the column
     for (int i = 0; i < row; i++)
         if (board[i][col] == 1)
             return false;
